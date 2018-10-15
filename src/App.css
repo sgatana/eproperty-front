@@ -1,0 +1,45 @@
+body { 
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica, Arial, sans-serif";
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0.5, 0.5)), url(./images/apartment.jpg) no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+  position: relative;
+}
+.userIcon{
+  font-size: 90px;
+  color: #fff;
+}
+.footer{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #fff;
+  padding-top: 10px;
+}
+.form{
+  margin: auto;
+  color: #fff;
+  padding-bottom: 10px;
+}
+.main{
+  margin-bottom: 50px;
+}
+.form-header{
+  font-family: 'Courgette', cursive;
+}
+.button{
+  background: #0a0521;
+  color: #fff;
+}
+.icons {
+  color: #fff;
+}
+.content{
+  padding-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 50px;
+
+}
+.selectButton{
+  /* font-style: oblique; */
+  font-family: Arial, Helvetica, sans-serif
+}
