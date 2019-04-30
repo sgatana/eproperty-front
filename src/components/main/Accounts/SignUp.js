@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-
-import registerUser from '../../../actions/registerUser'
-
+import { registerUser } from '../../../actions/userActions/userSignup'
+import { connect } from 'react-redux';
 class SignUp extends Component {
   constructor() {
     super()
@@ -38,10 +35,11 @@ class SignUp extends Component {
       role,
       password
     }
-    this.props.registerUser(user, this.props.history)
+    this.props.userSignUp(user)
+
   }
-  componentWillReceiveProps(nextProps){
-    if(nextProps.errors){
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
       })
@@ -65,7 +63,7 @@ class SignUp extends Component {
           <div className="col-md-4">
             <div className="form">
               <p className="text-center"><i className="fa fa-user-circle userIcon"></i></p>
-              <h2 className="text-center form-header">Sign Up to E~Property <hr /></h2>
+              <h3 className="text-center form-header">Sign Up to E~Property</h3>
               <form onSubmit={this.handleRegister} noValidate={true}>
                 <div style={{ color: 'red' }}>{errors}</div>
                 <div className="input-group mb-3">
@@ -106,7 +104,7 @@ class SignUp extends Component {
                       <i className="fa fa-lock mr-1"></i>
                     </span>
                   </div>
-                  <input type="password" name="password" value={password} onChange={this.handleInputChange} className="form-control" placeholder="Enter your id password" />
+                  <input type="password" autoComplete="off" name="password" value={password} onChange={this.handleInputChange} className="form-control" placeholder="Enter your id password" />
                 </div>
                 <select value={role} onChange={this.handleInputChange} className="form-control mb-3 test-center selectButton" placeholder="" name="role">
                   <option defaultValue={true}>Register as</option>
@@ -130,14 +128,15 @@ class SignUp extends Component {
     )
   }
 }
-SignUp.propTypes = {
-  registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
-  // errors: PropTypes.string
-}
+// SignUp.propTypes = {
+//   userSignUp: PropTypes.func.isRequired,
+//   auth: PropTypes.object.isRequired,
+// }
 
 const mapStateToProps = state => ({
-  auth: state.auth,
-  errors: state.errors
+  auth: state.user,
 })
-export default connect(mapStateToProps, { registerUser })(withRouter(SignUp))
+const mapDispatchToProps = dispatch => ({
+  userSignUp: user => dispatch(registerUser(user))
+})
+export default connect(mapStateToProps, mapDispatchToProps) (withRouter(SignUp))

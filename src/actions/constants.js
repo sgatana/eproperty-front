@@ -1,2 +1,2 @@
-export const REGISTER_USER = 'REGISTER_USER'
-export const LOG_ERRORS = 'LOG_ERRORS'
+export const SIGNUP_USER = 'SIGNUP_USER'
+export const SIGNUP_ERRORS = 'SIGNUP_ERRORS'
